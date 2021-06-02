@@ -163,4 +163,8 @@ button:disabled {
   .modal-content {
     width: 80%;
   }
+
+  .modal-body-text {
+    font-size: 1.15rem;
+  }
 }
