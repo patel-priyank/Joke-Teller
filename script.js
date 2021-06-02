@@ -1,7 +1,7 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
-const modal = document.getElementById('modal');
-const modalBodyText = document.getElementById('modal-body-text');
+const jokeModal = document.getElementById('joke-modal');
+const jokeModalBodyText = document.getElementById('joke-modal-body-text');
 
 // Disable / Enable button
 function toggleButton() {
@@ -51,8 +51,8 @@ function tellMe(joke) {
 }
 
 function hideModal() {
-  modal.style.display = 'none';
-  modalBodyText.innerText = '';
+  jokeModal.style.display = 'none';
+  jokeModalBodyText.innerText = '';
 }
 
 // Get Jokes from Joke API
@@ -73,8 +73,8 @@ async function getJoke() {
 
     console.log(joke);
 
-    modal.style.display = 'block';
-    modalBodyText.innerText = joke;
+    jokeModal.style.display = 'block';
+    jokeModalBodyText.innerText = joke;
 
     // Text to Speech
     tellMe(joke);
@@ -98,7 +98,7 @@ console.clear();
 function reduceTime(timeoutInMs) {
   $(function () {
     $d = timeoutInMs; // duration
-    $w = $('.modal-content').width(); // modal width
+    $w = $('.joke-modal-content').width(); // modal width
 
     $('.timer').animate({ width: 0 }, 0);
     $('.timer').animate({ width: $w }, $d, 'linear');

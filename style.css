@@ -65,11 +65,14 @@ button:disabled {
   animation-duration: 0.4s;
 }
 
-.modal-content {
+.joke-modal-content {
   position: fixed;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.modal-content {
   background-color: #fefefe;
   width: 50%;
   -webkit-animation-name: slideIn;
