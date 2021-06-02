@@ -8,9 +8,14 @@ function toggleButton() {
   button.disabled = !button.disabled;
 }
 
-function correctApiKey(joke) {
+function getApiKey(joke) {
   try {
-    return getApiKey();
+    modal.style.background = '';
+
+    // key should be provided in 'key.js' file in the format
+    // const key = 'ABC123'
+
+    return key;
   } catch (error) {
     console.log(
       '%cTo hear the joke, you need to enter a valid API Key from\nhttp://www.voicerss.org/personel/',
@@ -34,7 +39,7 @@ function correctApiKey(joke) {
 
 function tellMe(joke) {
   VoiceRSS.speech({
-    key: correctApiKey(joke),
+    key: getApiKey(joke),
     src: joke,
     hl: 'en-us',
     v: 'Linda',
