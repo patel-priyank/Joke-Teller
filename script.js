@@ -10,8 +10,6 @@ function toggleButton() {
 
 function getApiKey(joke) {
   try {
-    modal.style.background = '';
-
     // key should be provided in 'key.js' file in the following format
     // const key = 'ABC123'
 
@@ -22,17 +20,17 @@ function getApiKey(joke) {
       'color: orange; font-weight: bold; font-size: 16px'
     );
 
-    modal.style.background = 'rgba(0, 0, 0, 0.4)';
-
     const wordsPerMin = 200;
     const numberOfWords = joke.split(' ').length;
     const extraTimeInMs = 3000;
     const timeoutInMs = Math.floor((numberOfWords / wordsPerMin) * 60000 + extraTimeInMs);
 
     reduceTime(timeoutInMs);
+    toggleButton();
 
     setTimeout(() => {
       hideModal();
+      toggleButton();
     }, timeoutInMs);
 
     return '';
