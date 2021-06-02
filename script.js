@@ -12,7 +12,7 @@ function getApiKey(joke) {
   try {
     modal.style.background = '';
 
-    // key should be provided in 'key.js' file in the format
+    // key should be provided in 'key.js' file in the following format
     // const key = 'ABC123'
 
     return key;
@@ -28,6 +28,8 @@ function getApiKey(joke) {
     const numberOfWords = joke.split(' ').length;
     const extraTimeInMs = 3000;
     const timeoutInMs = Math.floor((numberOfWords / wordsPerMin) * 60000 + extraTimeInMs);
+
+    reduceTime(timeoutInMs);
 
     setTimeout(() => {
       hideModal();
@@ -94,3 +96,13 @@ audioElement.addEventListener('ended', toggleButton);
 audioElement.addEventListener('ended', hideModal);
 
 console.clear();
+
+function reduceTime(timeoutInMs) {
+  $(function () {
+    $d = timeoutInMs; // duration
+    $w = $('.modal-content').width(); // modal width
+
+    $('.timer').animate({ width: 0 }, 0);
+    $('.timer').animate({ width: $w }, $d, 'linear');
+  });
+}

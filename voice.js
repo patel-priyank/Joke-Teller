@@ -36,6 +36,10 @@ const VoiceRSS = {
       if (4 == t.readyState && 200 == t.status) {
         if (0 == t.responseText.indexOf('ERROR')) throw t.responseText;
         (audioElement.src = t.responseText), audioElement.play();
+
+        setTimeout(() => {
+          reduceTime(Math.floor(audioElement.duration * 1000));
+        }, 10);
       }
     }),
       t.open('POST', 'https://api.voicerss.org/', !0),

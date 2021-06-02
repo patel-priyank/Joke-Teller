@@ -106,6 +106,20 @@ button:disabled {
   font-size: 1.15rem;
 }
 
+.timer-container {
+  background-color: #2200ff;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.timer {
+  width: 0;
+  height: 0.35rem;
+  overflow: hidden;
+  background-color: white;
+  z-index: 10;
+}
+
 @-webkit-keyframes slideIn {
   from {
     bottom: -300px;
