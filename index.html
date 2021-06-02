@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joke Teller</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -11,6 +18,25 @@
     <div class="container">
       <button id="button">Tell Me A Joke</button>
       <audio id="audio" controls hidden></audio>
+    </div>
+
+    <span id="volume" class="volume" title="Can't hear?"><i class="fas fa-volume-mute"></i></span>
+    <span id="github" class="github" title="Browse code"><i class="fab fa-github"></i></span>
+
+    <div id="volume-modal" class="modal volume-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span>Can't hear?</span>
+          <span id="volume-modal-close" class="close">&times</span>
+        </div>
+
+        <div class="modal-body">
+          <span id="volume-modal-body-text" class="modal-body-text">
+            To hear the joke, you'll need to enter a valid API Key from
+            <a href="http://www.voicerss.org/personel/" target="_blank">here</a>.
+          </span>
+        </div>
+      </div>
     </div>
 
     <div id="joke-modal" class="modal joke-modal">

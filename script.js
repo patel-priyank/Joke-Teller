@@ -1,7 +1,11 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
+const volumeModal = document.getElementById('volume-modal');
 const jokeModal = document.getElementById('joke-modal');
 const jokeModalBodyText = document.getElementById('joke-modal-body-text');
+const volumeModalClose = document.getElementById('volume-modal-close');
+const volume = document.getElementById('volume');
+const github = document.getElementById('github');
 
 // Disable / Enable button
 function toggleButton() {
@@ -86,9 +90,23 @@ async function getJoke() {
   }
 }
 
+function browseCode() {
+  window.open('https://github.com/patel-priyank/Joke-Teller/');
+}
+
 // Event Listeners
 button.addEventListener('click', getJoke);
 audioElement.addEventListener('ended', toggleButton);
+
+github.addEventListener('click', browseCode);
+
+volume.addEventListener('click', () => {
+  volumeModal.style.display = 'block';
+});
+
+volumeModalClose.addEventListener('click', () => {
+  volumeModal.style.display = '';
+});
 
 // Hide Modal after Joke ended
 audioElement.addEventListener('ended', hideModal);
