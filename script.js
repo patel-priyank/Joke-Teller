@@ -1,12 +1,14 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
+const modal = document.getElementById('modal');
+const modalBodyText = document.getElementById('modal-body-text');
 
 // Disable / Enable button
 function toggleButton() {
   button.disabled = !button.disabled;
 }
 
-function correctApiKey() {
+function correctApiKey(joke) {
   try {
     return getApiKey();
   } catch (error) {
@@ -15,13 +17,24 @@ function correctApiKey() {
       'color: orange; font-weight: bold; font-size: 16px'
     );
 
+    modal.style.background = 'rgba(0, 0, 0, 0.4)';
+
+    const wordsPerMin = 200;
+    const numberOfWords = joke.split(' ').length;
+    const extraTimeInMs = 3000;
+    const timeoutInMs = Math.floor((numberOfWords / wordsPerMin) * 60000 + extraTimeInMs);
+
+    setTimeout(() => {
+      hideModal();
+    }, timeoutInMs);
+
     return '';
   }
 }
 
 function tellMe(joke) {
   VoiceRSS.speech({
-    key: correctApiKey(),
+    key: correctApiKey(joke),
     src: joke,
     hl: 'en-us',
     v: 'Linda',
@@ -30,6 +43,11 @@ function tellMe(joke) {
     f: '44khz_16bit_stereo',
     ssml: false
   });
+}
+
+function hideModal() {
+  modal.style.display = 'none';
+  modalBodyText.innerText = '';
 }
 
 // Get Jokes from Joke API
@@ -50,6 +68,9 @@ async function getJoke() {
 
     console.log(joke);
 
+    modal.style.display = 'block';
+    modalBodyText.innerText = joke;
+
     // Text to Speech
     tellMe(joke);
 
@@ -63,5 +84,8 @@ async function getJoke() {
 // Event Listeners
 button.addEventListener('click', getJoke);
 audioElement.addEventListener('ended', toggleButton);
+
+// Hide Modal after Joke ended
+audioElement.addEventListener('ended', hideModal);
 
 console.clear();
