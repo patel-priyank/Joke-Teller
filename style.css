@@ -103,6 +103,7 @@ button:disabled {
 .modal-body-text {
   margin: 0;
   overflow-wrap: break-word;
+  font-size: 1.15rem;
 }
 
 @-webkit-keyframes slideIn {
@@ -162,9 +163,5 @@ button:disabled {
 
   .modal-content {
     width: 80%;
-  }
-
-  .modal-body-text {
-    font-size: 1.15rem;
   }
 }
