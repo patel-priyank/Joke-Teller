@@ -38,7 +38,7 @@ const VoiceRSS = {
         (audioElement.src = t.responseText), audioElement.play();
 
         setTimeout(() => {
-          reduceTime(Math.floor(audioElement.duration * 1000));
+          reduceTime(Math.floor(audioElement.duration * 1000) - 10);
         }, 10);
       }
     }),
