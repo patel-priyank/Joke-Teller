@@ -1,5 +1,7 @@
 /* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html {
   box-sizing: border-box;
 }
@@ -7,7 +9,7 @@ html {
 body {
   margin: 0;
   background: #45badd;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -69,9 +71,6 @@ button:disabled {
   -webkit-animation-duration: 0.4s;
   animation-name: fadeIn;
   animation-duration: 0.4s;
-}
-
-.volume-modal {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -82,9 +81,9 @@ button:disabled {
   transform: translateX(-50%);
   background-color: #fefefe;
   width: 50%;
-  -webkit-animation-name: slideIn;
+  -webkit-animation-name: fadeIn;
   -webkit-animation-duration: 0.4s;
-  animation-name: slideIn;
+  animation-name: fadeIn;
   animation-duration: 0.4s;
   border-radius: 5px;
   box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
@@ -94,9 +93,8 @@ button:disabled {
   padding: 0.5rem 1rem;
   background-color: #ff3482;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: bold;
-  letter-spacing: -0.15rem;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -113,7 +111,6 @@ button:disabled {
 .modal-body-text {
   margin: 0;
   overflow-wrap: break-word;
-  font-size: 1.15rem;
 }
 
 .timer-container {
@@ -136,6 +133,7 @@ button:disabled {
   bottom: 1rem;
   font-size: 1.75rem;
   cursor: pointer;
+  color: #155e74;
 }
 
 .github {
@@ -144,30 +142,7 @@ button:disabled {
   bottom: 1rem;
   font-size: 1.75rem;
   cursor: pointer;
-}
-
-@-webkit-keyframes slideIn {
-  from {
-    bottom: -300px;
-    opacity: 0;
-  }
-
-  to {
-    bottom: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    bottom: -300px;
-    opacity: 0;
-  }
-
-  to {
-    bottom: 0;
-    opacity: 1;
-  }
+  color: #155e74;
 }
 
 @-webkit-keyframes fadeIn {
