@@ -7,43 +7,16 @@ const volumeModalClose = document.getElementById('volume-modal-close');
 const volume = document.getElementById('volume');
 const github = document.getElementById('github');
 
+const key = '9a17dad19aee4d5c8dfa278eee7f1999';
+
 // Disable / Enable button
 function toggleButton() {
   button.disabled = !button.disabled;
 }
 
-function getApiKey(joke) {
-  try {
-    // key should be provided in 'key.js' file in the following format
-    // const key = 'ABC123'
-
-    return key;
-  } catch (error) {
-    console.log(
-      '%cTo hear the joke, you need to enter a valid API Key from\nhttp://www.voicerss.org/personel/',
-      'color: orange; font-weight: bold; font-size: 16px'
-    );
-
-    const wordsPerMin = 200;
-    const numberOfWords = joke.split(' ').length;
-    const extraTimeInMs = 3000;
-    const timeoutInMs = Math.floor((numberOfWords / wordsPerMin) * 60000 + extraTimeInMs);
-
-    reduceTime(timeoutInMs);
-    toggleButton();
-
-    setTimeout(() => {
-      hideModal();
-      toggleButton();
-    }, timeoutInMs);
-
-    return '';
-  }
-}
-
 function tellMe(joke) {
   VoiceRSS.speech({
-    key: getApiKey(joke),
+    key: key,
     src: joke,
     hl: 'en-us',
     v: 'Linda',
@@ -75,10 +48,11 @@ async function getJoke() {
 
     const joke = data.joke ? data.joke : `${data.setup} ... ${data.delivery}`;
 
-    console.log(joke);
-
     jokeModal.style.display = 'block';
     jokeModalBodyText.innerText = joke;
+
+    // Change Joke Teller Header
+    document.getElementById('modal-header-text').innerText = 'Joke Teller (Loading...)';
 
     // Text to Speech
     tellMe(joke);
@@ -110,8 +84,6 @@ volumeModalClose.addEventListener('click', () => {
 
 // Hide Modal after Joke ended
 audioElement.addEventListener('ended', hideModal);
-
-console.clear();
 
 function reduceTime(timeoutInMs) {
   $(function () {

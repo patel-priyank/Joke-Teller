@@ -32,14 +32,13 @@
 
         <div class="modal-body">
           <span id="volume-modal-body-text" class="modal-body-text">
-            If your device speakers are working fine, then to hear the joke, you'll need to:
-            <ol>
-              <li>Get an API Key from <a href="http://www.voicerss.org/personel/" target="_blank">here</a> (it's free)</li>
-              <li>
-                Enter it in the <b>key.js</b> file in the format <br />
-                <span style="background-color: lightgray">const key = 'ABC123'</span>
-              </li>
-            </ol>
+            Try:
+            <ul>
+              <li>Checking your device speakers</li>
+              <li>Checking if you've muted the tab/website</li>
+              <li>Refreshing the page</li>
+              <li>Whitelisting the website if you're using an ad-blocker</li>
+            </ul>
           </span>
         </div>
       </div>
@@ -48,7 +47,7 @@
     <div id="joke-modal" class="modal joke-modal">
       <div class="modal-content joke-modal-content">
         <div class="modal-header">
-          <span>Joke Teller</span>
+          <span id="modal-header-text"></span>
         </div>
 
         <div id="timer-container" class="timer-container">
@@ -72,7 +71,6 @@
     ></script>
 
     <!-- Script -->
-    <script src="./key.js"></script>
     <script src="./voice.js"></script>
     <script src="./script.js"></script>
   </body>
