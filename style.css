@@ -1,0 +1,56 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #45badd;
+}
+
+.container {
+  height: 100svh;
+  width: 100svw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(./robot.gif);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+  height: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  color: white;
+  background-color: #ff3482;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 30px 20px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  filter: brightness(95%);
+}
+
+button:active {
+  transform: scale(0.975);
+}
+
+button:disabled {
+  cursor: default;
+  filter: brightness(30%);
+}
+
+/* Media query: Tablet or smaller */
+@media screen and (max-width: 1000px) {
+  .container {
+    background-size: cover;
+    background-position: center center;
+  }
+}
