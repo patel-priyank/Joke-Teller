@@ -1,8 +1,7 @@
 # Joke Teller
 
-Joke Teller is a website to tell programming jokes.
+Joke Teller is a fun web app that tells programming jokes out loud using text-to-speech. It fetches jokes from JokeAPI and uses VoiceRSS to read them aloud.
 
 ## Usage
 
-1. Register on VoiceRSS
-2. Enter the API key in `script.js`
+Register on VoiceRSS and enter your API key in `script.js`.
